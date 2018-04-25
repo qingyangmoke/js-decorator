@@ -1,6 +1,6 @@
 {
   "name": "js-decorator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "js decorator js 对象装饰器",
   "main": "src/index.js",
   "scripts": {
