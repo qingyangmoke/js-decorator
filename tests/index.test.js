@@ -47,7 +47,6 @@ delegator(HttpRequest.prototype, function () {
 
 const request = new Request();
 const httpRequest = new HttpRequest(request);
-
 describe('methods:', function () {
   describe('#obj.say()', function () {
     it('say', function () {

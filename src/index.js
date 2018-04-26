@@ -54,8 +54,12 @@ Decorator.prototype = {
   getter(name, newName) {
     newName = newName || name;
     const _this = this;
-    _this.object.__defineGetter__(newName, function () {
-      return _this._getTarget(this)[name];
+    Object.defineProperty(_this.object, newName, {
+      get() {
+        return _this._getTarget(this)[name];
+      },
+      enumerable: true,
+      configurable: true,
     });
     return _this;
   },
@@ -68,8 +72,10 @@ Decorator.prototype = {
   setter(name, newName) {
     newName = newName || name;
     const _this = this;
-    _this.object.__defineSetter__(newName, function (val) {
-      _this._getTarget(this)[name] = val;
+    Object.defineProperty(_this.object, newName, {
+      set(val) {
+        _this._getTarget(this)[name] = val;
+      },
     });
     return _this;
   },
